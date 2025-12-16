@@ -1,0 +1,555 @@
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef; /* Neon Cyan */
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* --- Layout Utility --- */
+.container {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem; /* Top padding clears the fixed navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: default;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--main-color);
+    text-shadow: 0 0 10px var(--main-color);
+}
+
+.hamburger {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+/* --- Hero Section (Home) --- */
+.hero-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.neon-text {
+    color: var(--main-color);
+    text-shadow: 0 0 10px var(--main-color);
+}
+
+/* --- 1. Make the Paragraph Text Large & Bold --- */
+.hero-content p {
+    font-size: 2.2rem;    /* Increased from standard size to Large */
+    font-weight: 700;     /* Makes the text Bold */
+    line-height: 1.4;     /* Adds a little space between lines */
+    margin-bottom: 2rem;  /* Keeps space above the button */
+}
+
+/* --- 2. Make the Image Square --- */
+.hero-img img {
+    width: 35vw;
+    
+    /* Change this line! */
+    border-radius: 20px;  /* 50% makes it a circle. 20px makes it a square with soft corners. */
+    /* Use border-radius: 0; if you want sharp corners */
+    
+    box-shadow: 0 0 20px var(--main-color);
+    animation: floatImage 4s ease-in-out infinite;
+}
+@keyframes floatImage {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-2.4rem); }
+    100% { transform: translateY(0); }
+}
+
+/* --- Buttons & Icons --- */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: 0 0 10px var(--main-color);
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px var(--main-color);
+    background: var(--text-color);
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.5s ease;
+}
+
+.social-icons a:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+/* --- About Section --- */
+.section-title {
+    text-align: center;
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+}
+
+.section-title span {
+    color: var(--main-color);
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-img img {
+    width: 25vw;
+    border-radius: 20px;
+    border: 0.2rem solid var(--main-color);
+}
+
+.about-text h3 {
+    font-size: 2.6rem;
+}
+
+.about-text p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+/* --- Skills Grid --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.skill-card {
+    background: var(--second-bg-color);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    transition: 0.5s;
+}
+
+.skill-card:hover {
+    border-color: var(--main-color);
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.2);
+}
+
+.skill-card i {
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-card h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.skill-card p {
+    font-size: 1.4rem;
+    color: #ccc;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 991px) {
+   .navbar { padding: 2rem 3%; }
+   .container { padding: 10rem 3% 2rem; }
+   .hero-img img { width: 60vw; margin-top: 3rem; }
+   .hero-section { flex-direction: column; text-align: center; }
+   .about-content { flex-direction: column; }
+   .about-img img { width: 70vw; }
+}
+
+@media (max-width: 768px) {
+   .hamburger { display: block; }
+   .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--second-bg-color);
+        padding: 1rem 3%;
+        display: none;
+        flex-direction: column;
+    }
+   .nav-links.active { display: flex; }
+   .nav-links li { margin: 1rem 0; }
+   .nav-links a { margin-left: 0; display: block; font-size: 2rem; }
+}
+/* Contact Form Styles */
+.contact-form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+    
+}
+
+.contact-form.input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-form.input-box input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--second-bg-color);
+    border-radius:.8rem;
+    margin:.7rem 0;
+}
+
+.contact-form.input-box input {
+    width: 49%;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+/* --- Centered About Page Styles --- */
+.about-centered {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Space for navbar */
+    background: radial-gradient(circle at center, #1a1f36 0%, #0b0d17 100%); /* Deep dark background */
+}
+
+/* Typography */
+.main-heading {
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.yellow-text {
+    color: #ffbd39; /* The yellow color from screenshot */
+}
+
+.about-desc {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Download Button */
+.download-btn {
+    background-color: #ffbd39;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 3rem;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 189, 57, 0.4);
+}
+
+/* --- CGPA Card --- */
+.cgpa-card {
+    border: 2px solid #ffbd39; /* Yellow Border */
+    background: rgba(255, 255, 255, 0.03); /* Slight transparent white */
+    border-radius: 20px;
+    padding: 30px 50px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 25px rgba(255, 189, 57, 0.15); /* Yellow Glow */
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.card-header p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Space between circle and text */
+}
+
+/* --- Circular Progress Bar --- */
+.progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* This creates the blue/purple chart part. 306deg is roughly 85% */
+    background: conic-gradient(#4d5bf9 0deg, #6f42c1 306deg, #333 306deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-inner {
+    width: 100px; /* Smaller than parent to create donut hole */
+    height: 100px;
+    background-color: #12141d; /* Matches dark card bg */
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.tiny-text {
+    font-size: 0.7rem;
+    color: #aaa;
+}
+
+/* --- Score Details --- */
+.score-details {
+    text-align: left;
+}
+
+.score-details h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.score-details h4 {
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.blue-text {
+    color: #4d5bf9;
+    font-weight: bold;
+}
+
+.status {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Mobile Fix */
+@media (max-width: 600px) {
+   .card-body {
+        flex-direction: column;
+        gap: 20px;
+    }
+   .score-details {
+        text-align: center;
+    }
+}
+/* --- Dark Contact Page Styles --- */
+.contact-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px; /* Space for navbar */
+    background: radial-gradient(circle at center, #1a1f36 0%, #0b0d17 100%);
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 3rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Style Inputs, Textarea, and Select */
+.contact-card input, 
+.contact-card textarea,
+.contact-card select {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: 0.3s;
+    appearance: none; /* Removes default arrow for select */
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+    color: #aaa;
+}
+
+/* Hover & Focus Effects */
+.contact-card input:focus, 
+.contact-card textarea:focus,
+.contact-card select:focus {
+    border-color: #0ef; /* Neon Cyan Border on Focus */
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Gender Dropdown Specifics */
+.contact-card select {
+    color: #aaa; /* Placeholder color for Gender */
+    cursor: pointer;
+}
+
+.contact-card select:valid {
+    color: #fff; /* White text once an option is picked */
+}
+
+/* Custom arrow for dropdown */
+.select-icon {
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    color: #aaa;
+    pointer-events: none;
+    font-size: 0.8rem;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #005bea 0%, #00c6fb 100%); /* Blue Gradient */
+    border: none;
+    border-radius: 50px; /* Rounded pill shape */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(0, 91, 234, 0.4);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 91, 234, 0.6);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+   .contact-card {
+        padding: 2rem;
+    }
+}
